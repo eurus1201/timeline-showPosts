@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Grid, Typography } from '@mui/material'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav>
+          <Grid container justifyContent={'space-between'}  >
+            <Typography pl={4} pt={4} variant='h3' component={'h1'}>
+              Timooty
+            </Typography>
+
+            <Link href="/add"  >
+              <Typography pr={4} pt={4} variant='h4' fontWeight={'bold'} color={'aqua'} component={'h1'}>
+                +
+              </Typography>
+            </Link>
+
+          </Grid>
+        </nav>
+        {children}
+      </body>
     </html>
   )
 }

@@ -11,14 +11,16 @@ async function getData() {
   return res.json()
 }
 interface props{
+  id: string;
   image: string;
   src: string;
   title:string;
+  slug:string;
 }
 export default async function Page() {
   const data = await getData()
 
-  return <main>
+   return <main>
     <Grid container justifyContent={'space-between'} p={3} spacing={2}>
       {
         data?.map((post: props) => {
@@ -26,6 +28,8 @@ export default async function Page() {
             <CardPost
               title={post.title}
               src={post.image}
+              id={post.id}
+              slug={post.slug}
             />
           )
         })
